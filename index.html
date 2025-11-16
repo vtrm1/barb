@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Barbearia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia - Agendamentos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
-  <h1>Projeto Barbearia – Em construção</h1>
+  <header class="hero">
+    <div class="container">
+      <h1>Reserve seu horário</h1>
+      <p>Escolha um serviço, selecione dia e horário e finalize seu agendamento.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="services" class="card">
+      <h2>Serviços disponíveis</h2>
+      <div id="services-list" class="grid"></div>
+    </section>
+
+    <section id="booking" class="card">
+      <h2>Faça seu agendamento</h2>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="service-select">Serviço</label>
+          <select id="service-select" required>
+            <option value="" disabled selected>Selecione um serviço</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date-input">Dia</label>
+          <input type="date" id="date-input" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time-select">Horário disponível</label>
+          <select id="time-select" required>
+            <option value="" disabled selected>Escolha um horário</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="customer-name">Nome completo</label>
+          <input type="text" id="customer-name" placeholder="Seu nome" required />
+        </div>
+
+        <div class="form-group">
+          <label for="customer-phone">Telefone</label>
+          <input type="tel" id="customer-phone" placeholder="(11) 99999-0000" required />
+        </div>
+
+        <button type="submit" class="btn primary">Confirmar agendamento</button>
+      </form>
+
+      <div id="confirmation" class="hidden">
+        <p class="success">Agendamento criado com sucesso! Confira o link para pagamento.</p>
+        <a href="https://meu-link-de-pagamento.com" target="_blank" rel="noreferrer" class="btn secondary">Pagar agora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Barbearia Exemplo. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

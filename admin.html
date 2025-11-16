@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Barbeiro</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header class="hero small">
+    <div class="container">
+      <h1>Painel do Barbeiro</h1>
+      <button id="logout-btn" class="btn secondary">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Agendamentos do dia</h2>
+      <div class="filters">
+        <button class="btn filter active" data-filter="all">Todos</button>
+        <button class="btn filter" data-filter="pending">Pendentes</button>
+        <button class="btn filter" data-filter="done">Concluídos</button>
+      </div>
+      <div id="appointments-list" class="list"></div>
+    </section>
+  </main>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
